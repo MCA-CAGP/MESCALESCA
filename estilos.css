@@ -1,0 +1,170 @@
+/* Creado por Alexo Ruiz*/
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    background-image: url('jpg/imagen_fondo_entrada.jpg');
+    background-color: grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'baske-reg';
+    text-transform: uppercase;
+}
+/* font face */
+@font-face {
+    font-family: 'baske-reg';
+    src: url(typo/BASKE9.ttf);
+}
+.main-content {
+    width:60%;
+    max-width:740px;
+}
+.logotipo {
+    width:50%;
+    max-width:340px;
+}
+.form-container .formgroup {
+    width:30%;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.form-container {
+    width:100%;
+    border:2px solid white;
+    padding:2em;
+    padding-bottom: 3em;
+}
+.form-fecha {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+p.p-title {
+    margin:0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.form-pais {
+    width:100%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.formgroup.form-pais {
+    width:100%;
+}
+.input-pais {
+    width:100%;
+}
+.input-fecha {
+    width:100%;
+    font-size: 20px;
+    text-align: center;
+}
+
+input, select {
+    height: 50px;
+    color: grey;
+}
+a:hover {
+    text-decoration: none;
+    color: grey;
+}
+.logotipo, .logo-container {
+    padding-bottom: 2em;
+}
+.web-name {
+    padding-top:2em;
+}
+
+/* clase de boton*/
+.intro-btn {
+    background-color: #AFAFAF;
+    color:white;
+    padding:.7em 2em;
+    margin-top:3em;
+    font-size: 20px;
+    height: 58px;
+}
+
+/* validaciones */
+.error {
+    display: block!important;
+    color: rgb(233, 70, 70);
+    font-size: 14px;
+  }
+.oculto {
+    display: none;
+}
+
+/* R E S P O N S I V E  W E B   D E S I G N */
+@media only screen and (max-width:1080px) {
+    .main-content {
+        width:100%;
+        max-width:840px;
+    }
+    input, select {
+        height: 45px;
+    }
+}
+@media only screen and (max-width:800px) {
+    .main-content {
+        width:100%;
+        max-width:700px;
+    }
+    .intro-btn {
+        padding: .5em 2em;
+        margin-top: 0em;
+        font-size: 18px;
+        height: 45px;
+        display: block;
+    }
+    .logotipo {
+        width:45%;
+    }
+}
+@media only screen and (max-width:760px) {
+    body {
+        height: auto;
+    }
+    .main-content {
+        width:100%;
+        max-width:740px;
+        padding-top: 5em;
+        padding-bottom: 3em;
+    }
+    p.p-title {
+        font-size: 16px;
+    }
+    .form-fecha {
+        flex-direction: column;
+        justify-content: flex-start
+    }
+    .form-container .formgroup {
+        width:100%;
+    }
+    .logo-container p {
+        font-size: 16px;
+    }
+    .logotipo {
+        width:60%;
+    }
+    .formgroup {
+        padding-bottom: 1.5em;
+    }
+    input, select {
+        height: 40px;
+    }
+    .intro-btn {
+        padding:.3em 2em;
+        height: 40px;
+    }
+
+}
