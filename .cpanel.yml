@@ -1,4 +1,5 @@
 deployment:
   tasks:
-    - export DEPLOYMENT_PATH=/home/user/public_html
-    - /bin/cp -R * $DEPLOYMENT_PATH
+    - export DEPLOYMENT_SOURCE=/home/ypeu7n1sin5q/repositories/MESCALESCA
+    - export DEPLOYMENT_DEST=/home/ypeu7n1sin5q/public_html
+    - /bin/cp -R $DEPLOYMENT_SOURCE/* $DEPLOYMENT_DEST/
