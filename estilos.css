@@ -1,8 +1,9 @@
-/* Creado por Alexo Ruiz*/
+/* Creado por Alexo Ruiz */
 * {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
+
 body {
     background-image: url('jpg/imagen_fondo_entrada.jpg');
     background-color: grey;
@@ -17,81 +18,114 @@ body {
     font-family: 'baske-reg';
     text-transform: uppercase;
 }
+
 /* font face */
 @font-face {
     font-family: 'baske-reg';
     src: url(typo/BASKE9.ttf);
 }
+
 .main-content {
-    width:60%;
-    max-width:740px;
+    width: 60%;
+    max-width: 740px;
 }
+
 .logotipo {
-    width:50%;
-    max-width:340px;
+    width: 45%;
+    max-width: 301px;
 }
+
 .form-container .formgroup {
-    width:30%;
-    display:flex;
+    width: 30%;
+    display: flex;
     justify-content: flex-start;
     flex-direction: column;
 }
+
 .form-container {
-    width:100%;
-    border:2px solid white;
-    padding:2em;
-    padding-bottom: 3em;
+    width: 100%;
+    border: 1px solid white;
+    padding: 1em 2em 2em;
+    border-radius: 4px;
 }
+
 .form-fecha {
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 p.p-title {
-    margin:0;
-    font-size: 20px;
+    margin: 0;
+    font-size: 18px;
     font-weight: bold;
 }
+
 .form-pais {
-    width:100%;
+    width: 100%;
     margin-top: 1em;
     margin-bottom: 2em;
 }
+
 .formgroup.form-pais {
-    width:100%;
+    width: 100%;
 }
+
 .input-pais {
-    width:100%;
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
 }
+
 .input-fecha {
-    width:100%;
-    font-size: 20px;
+    width: 100%;
+    font-size: 16px;
     text-align: center;
 }
 
-input, select {
-    height: 50px;
+input,
+select {
+    height: 35px;
     color: grey;
-}
-a:hover {
-    text-decoration: none;
-    color: grey;
-}
-.logotipo, .logo-container {
-    padding-bottom: 2em;
-}
-.web-name {
-    padding-top:2em;
+    border-radius: 5px;
+    padding: 3px;
 }
 
-/* clase de boton*/
+a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logotipo,
+.logo-container {
+    padding-bottom: 0em;
+}
+
+.web-name {
+    padding-top: 1em;
+}
+
+/* clase de boton */
 .intro-btn {
     background-color: #AFAFAF;
-    color:white;
-    padding:.7em 2em;
-    margin-top:3em;
+    color: white;
+    padding: .7em 2em;
+    margin-top: 3em;
     font-size: 20px;
     height: 58px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    /* Esta propiedad hace el efecto de transición */
+    /* Añade transición a la propiedad de opacidad */
+}
+
+.intro-btn:hover {
+    background-color: #dab751;
+
+    /* Color al pasar el ratón */
+    /* Reduzca la opacidad a 0.7 */
 }
 
 /* validaciones */
@@ -99,7 +133,8 @@ a:hover {
     display: block!important;
     color: rgb(233, 70, 70);
     font-size: 14px;
-  }
+}
+
 .oculto {
     display: none;
 }
@@ -107,18 +142,22 @@ a:hover {
 /* R E S P O N S I V E  W E B   D E S I G N */
 @media only screen and (max-width:1080px) {
     .main-content {
-        width:100%;
-        max-width:840px;
+        width: 100%;
+        max-width: 840px;
     }
-    input, select {
+
+    input,
+    select {
         height: 45px;
     }
 }
+
 @media only screen and (max-width:800px) {
     .main-content {
-        width:100%;
-        max-width:700px;
+        width: 100%;
+        max-width: 700px;
     }
+
     .intro-btn {
         padding: .5em 2em;
         margin-top: 0em;
@@ -126,45 +165,56 @@ a:hover {
         height: 45px;
         display: block;
     }
+
     .logotipo {
-        width:45%;
+        width: 45%;
     }
 }
+
 @media only screen and (max-width:760px) {
     body {
         height: auto;
     }
+
     .main-content {
-        width:100%;
-        max-width:740px;
+        width: 100%;
+        max-width: 740px;
         padding-top: 5em;
         padding-bottom: 3em;
     }
+
     p.p-title {
         font-size: 16px;
     }
+
     .form-fecha {
         flex-direction: column;
-        justify-content: flex-start
+        justify-content: flex-start;
     }
+
     .form-container .formgroup {
-        width:100%;
+        width: 100%;
     }
+
     .logo-container p {
         font-size: 16px;
     }
+
     .logotipo {
-        width:60%;
+        width: 60%;
     }
+
     .formgroup {
         padding-bottom: 1.5em;
     }
-    input, select {
-        height: 40px;
-    }
-    .intro-btn {
-        padding:.3em 2em;
+
+    input,
+    select {
         height: 40px;
     }
 
+    .intro-btn {
+        padding: .3em 2em;
+        height: 40px;
+    }
 }
