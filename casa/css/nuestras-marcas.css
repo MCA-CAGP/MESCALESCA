@@ -641,6 +641,7 @@
     font-family: baskerville-display-pt, serif;
     font-weight: 700;
     font-style: italic;
+   
 }
 
 #u2789-5,
@@ -662,6 +663,7 @@
     line-height: 23px;
     font-family: roboto, sans-serif;
     font-weight: 400;
+    text-align: justify;
 }
 
 #u3700-4 {
