@@ -15,7 +15,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    font-family: 'baske-reg';
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
 
