@@ -204,6 +204,64 @@
     }; // end themesflatTheme
     // TRANSLATE
 
+const translatableElements = document.querySelectorAll('.translatable');
+const originalTexts = Array.from(translatableElements).map(element => element.innerText);
+
+console.log("Textos originales:", originalTexts);
+
+const btnTranslate = document.getElementById('btn-translate');
+const btnReset = document.getElementById('btn-reset');
+
+const API_KEY = '4c4d8eb2-c025-32b0-be23-4115c0058073:fx';
+const API_URL = 'https://api.deepl.com/v2/translate';
+
+btnTranslate.addEventListener('click', async () => {
+    for (const element of translatableElements) {
+        let originalText = element.innerText;
+        let textToTranslate = originalText.toLowerCase();
+
+        const data = {
+            text: textToTranslate,
+            source_lang: "ES", // Para español
+            target_lang: "EN",
+            auth_key: API_KEY
+        };
+
+        console.log("Data enviada:", data);
+
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const result = await res.json();
+            console.log("Respuesta:", result);
+
+            if (result && result.translations && result.translations[0] && result.translations[0].text) {
+                element.innerText = result.translations[0].text;
+            } else {
+                console.error("Error en la traducción:", result);
+                alert("Hubo un problema en la respuesta de la API.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Hubo un error al traducir el texto. Verifica la consola para más detalles.");
+        }
+    }
+});
+
+btnReset.addEventListener('click', () => {
+    translatableElements.forEach((element, index) => {
+        element.innerText = originalTexts[index];
+    });
+});
+
 
 // END TRANSLATE
     // Start things up

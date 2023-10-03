@@ -204,6 +204,57 @@
     }; // end themesflatTheme
     // TRANSLATE
 
+console.log("Textos originales:", originalTexts);
+
+const btnTranslate = document.getElementById('btn-translate');
+const btnReset = document.getElementById('btn-reset');
+
+const API_KEY = 'a7746794-bc62-463b-978c-3f225b2e73e3';
+
+btnTranslate.addEventListener('click', async () => {
+    for (const element of translatableElements) {
+        const data = {
+            q: element.innerText,
+            source: "auto",
+            target: "en",
+            format: "text",
+            api_key: API_KEY
+        };
+
+        console.log("Data enviada:", data);
+
+        try {
+            const res = await fetch("https://libretranslate.com/translate", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!res.ok) { // Si el status HTTP no es un 2xx, lanza un error
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const result = await res.json();
+            console.log("Respuesta:", result);
+
+            if (result && result.translatedText) {
+                element.innerText = result.translatedText;
+            } else {
+                console.error("Error en la traducción:", result);
+                alert("Hubo un problema en la respuesta de la API.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Hubo un error al traducir el texto. Verifica la consola para más detalles.");
+        }
+    }
+});
+
+btnReset.addEventListener('click', () => {
+    translatableElements.forEach((element, index) => {
+        element.innerText = originalTexts[index];
+    });
+});
 
 // END TRANSLATE
     // Start things up

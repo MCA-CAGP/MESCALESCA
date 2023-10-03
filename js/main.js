@@ -107,7 +107,7 @@ function calcularEdad()
     } else
    if(opcion_pais === "usa"){
         if (edad >= 21) {
-          document.getElementById("enlace").href="casa2/casa-armando-guillermo-prieto-english.html"; //link en ingles (poner dentro de comillas)
+          document.getElementById("enlace").href="casa2/Ingles.html"; //link en ingles (poner dentro de comillas)
         } else {
           var parrafo_error = document.getElementById("p_error_eng");
           parrafo_error.className = "error";

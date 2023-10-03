@@ -204,6 +204,64 @@
     }; // end themesflatTheme
     // TRANSLATE
 
+const translatableElements = document.querySelectorAll('.translatable');
+const originalTexts = Array.from(translatableElements).map(element => element.innerText);
+let originalText = element.innerText;
+let textToTranslate = originalText.toLowerCase();
+
+console.log("Textos originales:", originalTexts);
+
+const btnTranslate = document.getElementById('btn-translate');
+const btnReset = document.getElementById('btn-reset');
+
+const API_KEY = '29f221bb-7000-436b-abe6-e81775b5412d';
+const API_URL = 'https://libretranslate.com/translate';
+
+btnTranslate.addEventListener('click', async () => {
+    for (const element of translatableElements) {
+        const data = {
+            q: element.innerText,
+            source: "auto",
+            target: "en",
+            format: "text",
+            api_key: API_KEY
+        };
+
+        console.log("Data enviada:", data);
+
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!res.ok) { // Si el status HTTP no es un 2xx, lanza un error
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const result = await res.json();
+            console.log("Respuesta:", result);
+
+            if (result && result.translatedText) {
+                element.innerText = result.translatedText;
+            } else {
+                console.error("Error en la traducción:", result);
+                alert("Hubo un problema en la respuesta de la API.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Hubo un error al traducir el texto. Verifica la consola para más detalles.");
+        }
+    }
+});
+
+btnReset.addEventListener('click', () => {
+    translatableElements.forEach((element, index) => {
+        element.innerText = originalTexts[index];
+    });
+});
+
 
 // END TRANSLATE
     // Start things up

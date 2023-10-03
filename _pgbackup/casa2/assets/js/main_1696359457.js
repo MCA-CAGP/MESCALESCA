@@ -203,6 +203,103 @@
 
     }; // end themesflatTheme
     // TRANSLATE
+const express = require('express');
+const fetch = require('node-fetch');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+const PORT = 3000;
+const API_URL = 'https://api.deepl.com/v2/translate';
+const API_KEY = '4c4d8eb2-c025-32b0-be23-4115c0058073:fx';
+
+app.use(bodyParser.json());
+
+app.post('/translate', async (req, res) => {
+    const data = {
+        text: req.body.text,
+        source_lang: req.body.source_lang,
+        target_lang: req.body.target_lang,
+        auth_key: API_KEY
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        const result = await response.json();
+        res.json(result);
+
+    } catch (error) {
+        console.error('Error fetching from DeepL:', error);
+        res.status(500).json({ error: 'Failed to fetch from DeepL API' });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
+const translatableElements = document.querySelectorAll('.translatable');
+const originalTexts = Array.from(translatableElements).map(element => element.innerText);
+
+console.log("Textos originales:", originalTexts);
+
+const btnTranslate = document.getElementById('btn-translate');
+const btnReset = document.getElementById('btn-reset');
+
+const API_KEY = '4c4d8eb2-c025-32b0-be23-4115c0058073:fx';
+const API_URL = 'https://api.deepl.com/v2/translate';
+
+btnTranslate.addEventListener('click', async () => {
+    for (const element of translatableElements) {
+        let originalText = element.innerText;
+        let textToTranslate = originalText.toLowerCase();
+
+        const data = {
+            text: textToTranslate,
+            source_lang: "ES", // Para español
+            target_lang: "EN",
+            auth_key: API_KEY
+        };
+
+        console.log("Data enviada:", data);
+
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            });
+
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const result = await res.json();
+            console.log("Respuesta:", result);
+
+            if (result && result.translations && result.translations[0] && result.translations[0].text) {
+                element.innerText = result.translations[0].text;
+            } else {
+                console.error("Error en la traducción:", result);
+                alert("Hubo un problema en la respuesta de la API.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Hubo un error al traducir el texto. Verifica la consola para más detalles.");
+        }
+    }
+});
+
+btnReset.addEventListener('click', () => {
+    translatableElements.forEach((element, index) => {
+        element.innerText = originalTexts[index];
+    });
+});
 
 
 // END TRANSLATE
