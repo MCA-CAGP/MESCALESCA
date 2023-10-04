@@ -5263,4 +5263,18 @@ body.page #main-content {
 .logn {
     display: inline-flex;
     height: 113px !important;
+}
+
+.button2 {
+}
+
+.button3 {
+    background-color: #d9b652;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 13px 30px;
+    width: auto;
+    margin-top: 22px;
 } 

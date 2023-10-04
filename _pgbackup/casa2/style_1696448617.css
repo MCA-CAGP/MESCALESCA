@@ -4083,6 +4083,13 @@ body.page #main-content {
     height: 100vh;
 }
 
+#contenedorPrincipal {
+    transition: opacity 0.5s;
+
+    /* 0.5s significa que la transición dura medio segundo */
+    opacity: 1;
+}
+
 .newclass2.opcion1-bg {
     background-image: url('assets/img/calidad_consistente_gradient.jpg');
 
@@ -4093,6 +4100,18 @@ body.page #main-content {
     background-image: url('assets/img/slider_home_dos.jpg');
 
     /* Ruta de la imagen de fondo para opción 2 */
+}
+
+.newclass2.opcion3-bg {
+    background-image: url('assets/img/calidad_consistente_gradient.jpg');
+
+    /* Ruta de la imagen de fondo para opción 3 */
+}
+
+.newclass2.opcion4-bg {
+    background-image: url('assets/img/slider_home_dos.jpg');
+
+    /* Ruta de la imagen de fondo para opción 4 */
 }
 
 @media (max-width:766px) {
@@ -5239,4 +5258,23 @@ body.page #main-content {
     width: 100%;
     display: inline-flex;
     cursor: pointer;
+}
+
+.logn {
+    display: inline-flex;
+    height: 113px !important;
+}
+
+.button2 {
+}
+
+.button3 {
+    background-color: #d9b652;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 13px 30px;
+    width: auto;
+    margin-top: 22px;
 } 
