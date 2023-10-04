@@ -1,0 +1,81 @@
+//html calidad.html
+<div id="contenedorPrincipal" class="newclass2">
+    <div class="button2">
+        <a onclick="cambiarContenido('opcion1');" class="themesflat-button bg-white">CALIDAD CONSISTENTE, PRODUCCIÓN SOSTENIBLE</a>
+        <a onclick="cambiarContenido('opcion2');" class="themesflat-button bg-white">PROGRAMA DE SUSTENTABILIDAD MÉTODO VERDE</a>
+    </div>
+    <div id="logo"></div>
+    <p id="titulo" class="title"></p>
+    <p id="contenido"> 
+        Mezcales Casa Armando representa la continuidad de un sueño de 5 generaciones, creado con valores familiares, una rica herencia cultural y gran amor por Oaxaca y por México. <br><br>
+        Es la compañía líder de mezcal en México, tanto en el mercado doméstico como en Duty Free México, con presencia cada vez mayor en Centroamérica, Europa, Australia, y Asia.
+    </p> 
+    <img src="assets/img/simbolo.png" class="block2" style="margin-top: 82px;" alt="Imagen"> 
+</div>
+
+//css style.css
+.newclass2 {
+    position: relative;
+    z-index: 19;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vh;
+    line-height: 3vh;
+    font-weight: 400;
+    float: left;
+    background-image: url('assets/img/quienes_somos.jpg');
+    padding: 11vh 25vw 85px 12vw;
+    background-size: cover;
+    height: 100vh;
+}
+
+.newclass2.opcion1-bg {
+    background-image: url('assets/img/calidad_consistente_gradient.jpg'); /* Ruta de la imagen de fondo para opción 1 */
+}
+
+.newclass2.opcion2-bg {
+    background-image: url('assets/img/slider_home_dos.jpg'); /* Ruta de la imagen de fondo para opción 2 */
+}
+
+//javascript main.js
+document.addEventListener("DOMContentLoaded", function() {
+    const btnOpcion1 = document.querySelector(".themesflat-button.bg-white:nth-child(1)");
+    const btnOpcion2 = document.querySelector(".themesflat-button.bg-white:nth-child(2)");
+
+    btnOpcion1.addEventListener('click', function() {
+        cambiarContenido('opcion1');
+    });
+
+    btnOpcion2.addEventListener('click', function() {
+        cambiarContenido('opcion2');
+    });
+});
+
+function cambiarContenido(opcion) {
+    var contenedor = document.getElementById('contenedorPrincipal');
+    var logo = document.getElementById('logo');
+    var titulo = document.getElementById('titulo');
+    var contenido = document.getElementById('contenido');
+    
+    
+    switch(opcion) {
+        case 'opcion1':
+            contenedor.classList.remove('opcion2-bg');
+            contenedor.classList.add('opcion1-bg');
+            
+            logo.innerHTML = '<img src="assets/img/flash_industria_limpia.png" alt="Logo Industria Limpia"><img src="assets/img/flash_supervisores.png" alt="Logo Supervisores"><img src="assets/img/nom.png" alt="Logo NOM">';
+            titulo.innerText = "CALIDAD CONSISTENTE, PRODUCCIÓN SOSTENIBLE.";
+            contenido.innerText = "* 4 hornos tradicionales de mampostería para la elaboración de mezcal tradicional. <br><br>* Más de 1,500 barricas nuevas de Roble Francés y Americano, para un sabor diferenciado. <br><br>* 11 hectáreas de cultivos con 14.5k plantas de agave Espadín propias. <br><br>* Invernadero para el cultivo y protección de agaves de primera generación. <br><br>* ISO 9001, HACCP, Certificado de Industria Limpia, Kosher y uso de Madera Certificada.";
+           
+            break;
+        case 'opcion2':
+            contenedor.classList.remove('opcion1-bg');
+            contenedor.classList.add('opcion2-bg');
+            
+            logo.innerHTML = '<img src="ruta/a/flash_metodo_verde.png" alt="Metodo verde">';
+            titulo.innerText = "PROGRAMA DE SUSTENTABILIDAD MÉTODO VERDE®";
+            contenido.innerText = "Somos una destilería que se distingue por su programa de Sustentabilidad MÉTODO VERDE™, que no utiliza ni maltrata animales. Además, está certificada como Industria Limpia por la Secretaría de Protección al Medio Ambiente de México y cuenta con certificación Kosher, entre otras distinciones de calidad. <br><br>La destilería cuenta con su propia planta de tratamiento de aguas residuales, recolecta el agua de lluvia y usa paneles solares para sus necesidades energéticas.";
+            
+            break;
+    }
+}

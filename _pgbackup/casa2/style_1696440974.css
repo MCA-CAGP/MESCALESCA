@@ -4095,6 +4095,18 @@ body.page #main-content {
     /* Ruta de la imagen de fondo para opción 2 */
 }
 
+.newclass2.opcion3-bg {
+    background-image: url('assets/img/calidad_consistente_gradient.jpg');
+
+    /* Ruta de la imagen de fondo para opción 3 */
+}
+
+.newclass2.opcion4-bg {
+    background-image: url('assets/img/slider_home_dos.jpg');
+
+    /* Ruta de la imagen de fondo para opción 4 */
+}
+
 @media (max-width:766px) {
     .themesflat-button {
         display: block !important;
@@ -5239,4 +5251,9 @@ body.page #main-content {
     width: 100%;
     display: inline-flex;
     cursor: pointer;
+}
+
+.logn {
+    display: inline-flex;
+    height: 113px !important;
 } 
