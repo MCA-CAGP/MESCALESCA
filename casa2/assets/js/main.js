@@ -202,10 +202,54 @@
         },
 
     }; // end themesflatTheme
-    // TRANSLATE
+    // script texto
+
+   document.addEventListener("DOMContentLoaded", function() {
+    const btnOpcion1 = document.querySelector(".themesflat-button.bg-white:nth-child(1)");
+    const btnOpcion2 = document.querySelector(".themesflat-button.bg-white:nth-child(2)");
+
+    btnOpcion1.addEventListener('click', function() {
+        cambiarContenido('opcion1');
+    });
+
+    btnOpcion2.addEventListener('click', function() {
+        cambiarContenido('opcion2');
+    });
+});
+
+function cambiarContenido(opcion) {
+     console.log("Función cambiarContenido activada con opción:", opcion);
+    var contenedor = document.getElementById('contenedorPrincipal');
+    var logo = document.getElementById('logo');
+    var titulo = document.getElementById('titulo');
+    var contenido = document.getElementById('contenido');
+    
+    
+    switch(opcion) {
+        case 'opcion1':
+            contenedor.classList.remove('opcion2-bg');
+            contenedor.classList.add('opcion1-bg');
+            
+            logo.innerHTML = '<img src="assets/img/flash_industria_limpia.png" alt="Logo Industria Limpia"><img src="assets/img/flash_supervisores.png" alt="Logo Supervisores"><img src="assets/img/nom.png" alt="Logo NOM">';
+            titulo.innerText = "CALIDAD CONSISTENTE, PRODUCCIÓN SOSTENIBLE.";
+            contenido.innerHTML = "* 4 hornos tradicionales de mampostería para la elaboración de mezcal tradicional. <br><br>* Más de 1,500 barricas nuevas de Roble Francés y Americano, para un sabor diferenciado. <br><br>* 11 hectáreas de cultivos con 14.5k plantas de agave Espadín propias. <br><br>* Invernadero para el cultivo y protección de agaves de primera generación. <br><br>* ISO 9001, HACCP, Certificado de Industria Limpia, Kosher y uso de Madera Certificada.";
+           
+            break;
+        case 'opcion2':
+            contenedor.classList.remove('opcion1-bg');
+            contenedor.classList.add('opcion2-bg');
+            
+            logo.innerHTML = '<img src="assets/img/flash_metodo_verde.png" alt="Metodo verde">';
+            titulo.innerText = "PROGRAMA DE SUSTENTABILIDAD MÉTODO VERDE®";
+            contenido.innerHTML = "Somos una destilería que se distingue por su programa de Sustentabilidad MÉTODO VERDE™, que no utiliza ni maltrata animales. Además, está certificada como Industria Limpia por la Secretaría de Protección al Medio Ambiente de México y cuenta con certificación Kosher, entre otras distinciones de calidad. <br><br>La destilería cuenta con su propia planta de tratamiento de aguas residuales, recolecta el agua de lluvia y usa paneles solares para sus necesidades energéticas.";
+            
+            break;
+    }
+}
 
 
-// END TRANSLATE
+
+// script texto
     // Start things up
     themesflatTheme.init();
 
