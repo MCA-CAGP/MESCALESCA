@@ -11,14 +11,12 @@ var RevSlider = function() {
             } else {
                 revapi1 = tpj("#rev-slider1").show().revolution({
 
+                    
                     jsFileLocation: "includes/rev-slider/js/",
                     sliderType:"standard",
-                    sliderLayout: "fullscreen",
-                    fullScreenAutoWidth: "on",
                     fullScreenOffsetContainer: ".header-class,.bottom,.rev-slider-offset",
                     forceCover: true,
-                    fullWidth:"on",
-                    autoHeight: "on",
+                    sliderLayout: "fullscreen",
                     dottedOverlay: "none",
                     delay: 6000,
                     navigation: {
@@ -72,9 +70,6 @@ var RevSlider = function() {
                         outof: "pause",
                         visible_area: "80%"
                     },
-                    responsiveLevels:[2220,1183,975,750],
-                    gridwidth:[1170,970,760,320],
-                    gridheight: [800,800,600,500],
                     lazyType: "smart",
                     parallax: {
                         type: "scroll",
@@ -86,10 +81,9 @@ var RevSlider = function() {
                     spinner: "off",
                     stopLoop: "off",
                     stopAfterLoops: -1,
+                    forceCover: true,
                     stopAtSlide: -1,
                     shuffle: "off",
-                    autoHeight: "on",
-                    fullScreenOffsetContainer: ".rev-slider-offset",
                     hideThumbsOnMobile: "off",
                     hideSliderAtLimit: 0,
                     hideCaptionAtLimit: 0,
@@ -119,10 +113,7 @@ var RevSlider = function() {
                     sliderType:"standard",
                     forceCover: true,
                     sliderLayout: "fullscreen",
-                    autoHeight: "on",
-                    fullScreenAutoWidth: "on",
                     fullScreenOffsetContainer: ".header-class,.bottom,.rev-slider-offset",
-                    fullWidth:"on",
                     dottedOverlay: "none",
                     delay: 6000,
                     navigation: {
@@ -176,10 +167,7 @@ var RevSlider = function() {
                         outof: "pause",
                         visible_area: "80%"
                     },
-                    responsiveLevels:[2220,1183,975,750],
                     forceCover: true,
-                    gridwidth:[1170,970,760,320],
-                    gridheight: [800,800,600,500],
                     lazyType: "smart",
                     parallax: {
                         type: "scroll",
@@ -193,7 +181,7 @@ var RevSlider = function() {
                     stopAfterLoops: -1,
                     stopAtSlide: -1,
                     shuffle: "off",
-                    autoHeight: "off",
+                    forceCover: true,
                     fullScreenOffsetContainer: ".rev-slider-offset",
                     hideThumbsOnMobile: "off",
                     hideSliderAtLimit: 0,
@@ -221,3 +209,21 @@ var RevSlider = function() {
 $(document).ready(function() {
     RevSlider.init();
 });
+$(window).on('resize', function() {
+    if($(window).width() <= 768) {  // Ajusta este número según tu breakpoint de móvil
+        var windowHeight = $(window).height();
+        $('#rev-slider1, #rev-slider2').css('height', windowHeight + 'px');
+        $('#rev-slider1 img, #rev-slider2 img').css({
+            'height': '100vh',
+            'width': 'auto',
+            'max-width': 'none'
+        });
+    } else {
+        $('#rev-slider1 img, #rev-slider2 img').css({
+            'height': '',
+            'width': '',
+            'max-width': ''
+        });
+    }
+}).trigger('resize');
+
