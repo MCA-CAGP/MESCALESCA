@@ -471,7 +471,6 @@ td {
 
 a:hover {
     text-decoration: none;
-    background-color: #d9b652;
 }
 
 /* Media */
@@ -5300,7 +5299,7 @@ body.page #main-content {
     text-transform: uppercase;
     padding: 13px 30px;
     width: auto;
-    margin-top: 50px;
+    margin-top: 22px;
 }
 
 .texts {
@@ -5411,54 +5410,4 @@ body.page #main-content {
         width: 100%;
         display: inline;
     }
-}.rec {
-    background-color: #ef2383 !important;
-}
-
-.rec:hover {
-    background-color: #debf68 !important;
-}
-
-.rec:visited {
-    background-color: #000000 !important;
-}
-
-.zig {
-    background-color: #000000 !important;
-}
-
-.zig:hover {
-    background-color: #debf68 !important;
-}
-
-.zig:visited {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-.sen {
-    background-color: #19adba !important;
-}
-
-.sen:hover {
-    background-color: #debf68 !important;
-}
-
-.sen:visited {
-    background-color: #000000 !important;
-}
-
-.met {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-.met:hover {
-    background-color: #debf68 !important;
-    color: #ffffff !important;
-}
-
-.met:visited {
-    background-color: #535353 !important;
-    color: #ffffff !important;
 } 
